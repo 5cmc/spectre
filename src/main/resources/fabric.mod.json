@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "spectre",
+  "version": "${version}",
+  "name": "Spectre",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "icon": "assets/spectre/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "fifthcolumn.spectre.Spectre"
+    ]
+  },
+  "mixins": [
+    "spectre.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.7",
+    "fabric": "*",
+    "minecraft": "1.17.1"
+  }
+}
