@@ -16,8 +16,8 @@ public class DedicatedPlayerManagerMx extends PlayerManager {
         super(minecraftServer, (DynamicRegistryManager.Immutable) impl, worldSaveHandler, i);
     }
 
-    @Inject(method = "isWhitelisted", at = @At("INVOKE"))
-    public boolean isWhitelisted(GameProfile profile) {
-        return this.isWhitelistEnabled() || this.isOperator(profile);
+   @Inject(method = "isWhitelisted", at = @At("HEAD"))
+    public boolean isWhitelisted(GameProfile profile, CallbackInfoReturnable<Boolean> cir) {
+    return(this.isWhitelistEnabled() || this.isOperator(profile));
     }
 }
