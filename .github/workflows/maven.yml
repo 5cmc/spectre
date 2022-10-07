@@ -19,7 +19,7 @@ jobs:
       - name: Maven version check
         run: mvn -X -version
       - name: Grant execute permission for gradlew
-        run: gradlew
+        run: spectre +x gradlew
       - name: Build Mod
         working-directory: spectre
         run: ./gradlew collectArtifacts
