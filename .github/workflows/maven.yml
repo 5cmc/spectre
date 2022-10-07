@@ -18,8 +18,13 @@ jobs:
           distribution: 'adopt'
       - name: Maven version check
         run: mvn -X -version
+      - name: Checkout mod
+        uses: actions/checkout@v3
+        with:
+          path: spectre
       - name: Grant execute permission for gradlew
-        run: chmod +x
+        working-directory: spectre
+        run: chmod +x gradlew
       - name: Build Mod
         working-directory: spectre
         run: ./gradlew collectArtifacts
