@@ -9,6 +9,7 @@ import net.minecraft.world.WorldSaveHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(DedicatedPlayerManager.class)
 public class DedicatedPlayerManagerMx extends PlayerManager {
@@ -16,8 +17,9 @@ public class DedicatedPlayerManagerMx extends PlayerManager {
         super(minecraftServer, (DynamicRegistryManager.Immutable) impl, worldSaveHandler, i);
     }
 
-   @Inject(method = "isWhitelisted", at = @At("HEAD"))
+    @Inject(method = "isWhitelisted", at = @At("HEAD"))
     public boolean isWhitelisted(GameProfile profile, CallbackInfoReturnable<Boolean> cir) {
-    return(this.isWhitelistEnabled() || this.isOperator(profile));
+        //cir.setReturnValue
+                return(this.isWhitelistEnabled() || this.isOperator(profile));
     }
 }
